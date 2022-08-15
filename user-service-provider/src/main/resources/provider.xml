@@ -27,4 +27,9 @@
     <!--服务的实现-->
     <bean id="userServiceImpl" class="com.atguigu.gmall.service.impl.UserServiceImpl"></bean>
 
+    <!--连接监控中心-->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+
+
+
 </beans>

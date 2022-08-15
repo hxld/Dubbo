@@ -17,4 +17,11 @@
     <!--声明需要调用的远程服务的接口；生成远程服务代理-->
     <dubbo:reference interface="com.atguigu.gmall.service.UserService" id="userService"></dubbo:reference>
 
+
+
+    <!--监控中心与注册中心动态链接(有两种方式)-->
+    <!--第一种方式   直接连接-->
+<!--    <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>-->
+    <!--第二种方式  自动发现-->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
 </beans>
