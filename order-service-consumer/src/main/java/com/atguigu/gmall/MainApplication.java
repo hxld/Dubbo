@@ -11,7 +11,7 @@ import java.io.IOException;
  * @create 2022-08-15 15:27
  */
 public class MainApplication {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("consumer.xml");
 
         OrderService orderService = applicationContext.getBean(OrderService.class);

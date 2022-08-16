@@ -15,7 +15,16 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
 
     <!--声明需要调用的远程服务的接口；生成远程服务代理-->
-    <dubbo:reference interface="com.atguigu.gmall.service.UserService" id="userService"></dubbo:reference>
+    <!--timeout 超时时间，指的是消费者等待提供者提供的最大等待时间-->
+    <!--超时时间：首先是方法的精确优先-->
+    <dubbo:reference interface="com.atguigu.gmall.service.UserService" id="userService"
+                    timeout="5000" >
+        <dubbo:method name="getUserAddressList" ></dubbo:method>
+    </dubbo:reference>
+
+    <!--后面消费者需要的服务很多，不可能一个一个写-->
+    <!--配置当前消费者的统一规则：所有的服务都不检查-->
+    <dubbo:consumer check="false"></dubbo:consumer>
 
 
 

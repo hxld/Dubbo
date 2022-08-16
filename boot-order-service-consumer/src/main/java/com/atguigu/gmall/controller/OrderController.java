@@ -1,16 +1,26 @@
 package com.atguigu.gmall.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author hxld
- * @create 2022-08-15 18:14
- */
+import com.atguigu.gmall.bean.UserAddress;
+import com.atguigu.gmall.service.OrderService;
+
 @Controller
 public class OrderController {
-    @RequestMapping("/initOrder")
-    public  void initOrder(){
+	
+	@Autowired
+	OrderService orderService;
+	
+	@ResponseBody
+	@RequestMapping("/initOrder")
+	public List<UserAddress> initOrder(@RequestParam("uid")String userId) throws InterruptedException {
+		return orderService.initOrder(userId);
+	}
 
-    }
 }
