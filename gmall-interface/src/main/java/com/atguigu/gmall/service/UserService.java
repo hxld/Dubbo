@@ -15,5 +15,5 @@ public interface UserService {
      * @return
      */
 
-    public List<UserAddress> getUserAddressList(String userId) throws InterruptedException;
+    public List<UserAddress> getUserAddressList(String userId) ;
 }
