@@ -3,8 +3,7 @@ package com.atguigu.gmall.service.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -26,11 +25,11 @@ import com.atguigu.gmall.service.UserService;
 public class OrderServiceImpl implements OrderService {
 
 	//@Autowired
-//	@Reference()
-	@Reference(loadbalance = "roundrobin")  //负载均衡，轮询机制，默认其实是随机机制
+	@Reference()
+//	@Reference(loadbalance = "roundrobin")  //负载均衡，轮询机制，默认其实是随机机制
 //	@Reference(url = "127.0.0.1:20881") //绕过注册中心，直接连接提供者的地址
 	UserService userService;
-	@HystrixCommand(fallbackMethod = "hello")
+//	@HystrixCommand(fallbackMethod = "hello")
 	@Override
 	public List<UserAddress> initOrder(String userId) {
 
@@ -41,12 +40,12 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 
-	public List<UserAddress> hello(String userId) {
-
-
-
-		return Arrays.asList(new UserAddress(10,"测试地址","1","测试","测试","y"));
-	}
-
+//	public List<UserAddress> hello(String userId) {
+//
+//
+//
+//		return Arrays.asList(new UserAddress(10,"测试地址","1","测试","测试","y"));
+//	}
+//
 
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 public class MainApplication {
 
     @SuppressWarnings("resource")
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("consumer.xml");
 
         OrderService orderService = applicationContext.getBean(OrderService.class);
